@@ -6,12 +6,8 @@ const JUMP_VELOCITY = -400.0
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_down", "move_up"))
 	if direction:
 		velocity = direction * SPEED
