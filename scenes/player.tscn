@@ -30,3 +30,5 @@ sprite_frames = SubResource("SpriteFrames_qlg0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_tuyoq")
+
+[node name="Raycast" type="RayCast2D" parent="."]
