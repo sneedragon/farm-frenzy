@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://rsma5jmx6bgi"]
+
+[ext_resource type="Script" uid="uid://bka162oivuwy4" path="res://scripts/plant.gd" id="1_fi0kw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi0kw"]
+size = Vector2(13, 9)
+
+[node name="Plant" type="Area2D" groups=["Plant"]]
+y_sort_enabled = true
+script = ExtResource("1_fi0kw")
+harvest_yield = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_fi0kw")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true

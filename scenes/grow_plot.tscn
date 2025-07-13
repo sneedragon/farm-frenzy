@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwvi6g0ylgrdo"]
+
+[ext_resource type="Script" uid="uid://dtft6pg63er5p" path="res://scripts/grow_plot.gd" id="1_ktd7u"]
+[ext_resource type="Texture2D" uid="uid://cpy7m6wjlx77m" path="res://sprites/grow_area.png" id="2_2llim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2llim"]
+atlas = ExtResource("2_2llim")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qhco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2llim")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2llim"]
+size = Vector2(16, 16)
+
+[node name="GrowPlot" type="Area2D" groups=["Plot"]]
+script = ExtResource("1_ktd7u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7qhco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2llim")

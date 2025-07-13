@@ -1,13 +1,21 @@
 extends CharacterBody2D
 
+@onready var planting: Node = $Interactions/Planting
+@onready var shoveling: Node = $Interactions/Shoveling
+
 
 const SPEED = 150.0
 
+func _process(delta: float) -> void:
+	#TODO Show held item 
+	pass
+	
 func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	if direction:
+		$Raycast.rotation = direction.angle()
 		velocity = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -20,31 +28,36 @@ func _input(event: InputEvent) -> void:
 		interact()
 
 func interact():
+	var held_item = global.current_held
 	var target = raycast()
-	
-	#PLANTING
-	if target.is_in_group("Plot"):
-		if global.current_seed:
-			plant(target)
+	if target:
+		
+		#PLANTING
+		if target.name == "SeedBox":
+			print("test!")
+			target.set_seed()
 			return
-		#TODO Harvest function
-		print("There was nothing to do with " + str(target))
+		if target.is_in_group("Plot"):
+			planting.planting_checks(target)
+			return
 			
-	elif !target:
-		print("Nothing in front of character")
-		return
-	push_error("Player interacted with unidentified collider: " + str(target))
-	
+		#PLANTCARE & HARVESTING
+		if target.is_in_group("Plant"):
+			pass
+			return
+			
+		#BUY AND PLACE NEW GROWTH PLOTS
+		if target.name == "Shovel":
+			target.shovel_checks()
+			return
+			
+	if held_item:
+		if held_item.name == "Shovel":
+			shoveling.place_plot(global_position)
+			return
+		#push_error("Player interacted with unidentified collider: " + str(target))
+	print("There is no target to interact with.")
 
-func plant(target_plot):
-	var current_seed = global.current_seed
-	if !target_plot.occupied:
-		target_plot.occupied = true
-		plant_a_seed(current_seed, target_plot)
-		print(str(current_seed) + " planted in " + str(target_plot) + " at " + str(target_plot.position))
-		global.current_seed = null
-		return
-	print(str(target_plot) + " is occupied already, could not plant seed.")
 
 	
 func raycast():
@@ -52,10 +65,3 @@ func raycast():
 			print(str($Raycast.get_collider()))
 			return $Raycast.get_collider()
 	return
-
-func plant_a_seed(seed, target):
-	return
-	var plant_instance = seed.instantiate()
-	plant_instance.position = target.position
-	get_tree().root.add_child(plant_instance)
-	
