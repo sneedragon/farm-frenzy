@@ -8,7 +8,7 @@ func _ready() -> void:
 	current_seed = seedlist.get_seed_data(seedlist.seeds.TOMATO)
 
 
-func set_seed():
+func set_player_seed():
 	if current_seed:
 		global.current_held = null
 		global.current_seed = current_seed

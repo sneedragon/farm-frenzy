@@ -25,6 +25,7 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 y_sort_enabled = true
 script = ExtResource("1_g2els")
 
@@ -36,7 +37,7 @@ sprite_frames = SubResource("SpriteFrames_qlg0r")
 shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="Raycast" type="RayCast2D" parent="."]
-target_position = Vector2(32, 0)
+target_position = Vector2(16, 0)
 collide_with_areas = true
 
 [node name="Interactions" type="Node" parent="."]

@@ -35,7 +35,7 @@ func interact():
 		#PLANTING
 		if target.name == "SeedBox":
 			print("test!")
-			target.set_seed()
+			target.set_player_seed()
 			return
 		if target.is_in_group("Plot"):
 			planting.planting_checks(target)

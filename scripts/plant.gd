@@ -1,17 +1,22 @@
 extends Area2D
 class_name Plant
 
-@export var crop_name : String
+@export var crop_type : seedlist.seeds #export for testing purposes. is actually set when instantiating in player_interact_planting.gd.
+var crop_data
+#@onready var crop_name : String
+var health: float
 var growth_stages : int # amount of growth stages this specific type of crop has
-@export var max_lifetime : float
+var needed_growth_time : float
+var max_lifetime : float
+var harvest_yield : int
 
 var growth_stage : int = 0 # current growth stag
 var current_lifetime : float = 0 #growth so far
+
 var time_per_stage : float #move onto next growth tier after passing this
 var harvestable : bool = false # fully grown
 
-var fruit
-@export var harvest_yield : int = 1
+
 
 var id : int
 
@@ -24,23 +29,35 @@ func _physics_process(delta: float) -> void:
 	grow(delta)
 	
 func initialize_crop() -> void:
+	crop_data = seedlist.get_seed_data(crop_type)
+	health = crop_data["health"]
+	needed_growth_time = crop_data["grow_time"]
+	harvest_yield = crop_data["harvest_yield"]
+	$Sprite.frames = crop_data["sprites"]
 	growth_stages = $Sprite.sprite_frames.get_frame_count("default")
-	time_per_stage = max_lifetime / float(growth_stages)
+	time_per_stage = needed_growth_time / float(growth_stages)
+	max_lifetime = (needed_growth_time + (time_per_stage * 2))
 	print("Initialized " + self.name + " with " + str(growth_stages) + " divided to " + str(time_per_stage))
 	
 func grow(delta):
 	growth_check(delta)
 
 func growth_check(delta):
-	if is_growing and current_lifetime < max_lifetime:
+	if is_growing:
 		current_lifetime += delta
-		if current_lifetime > (time_per_stage * (float(growth_stage)+1.0)) and growth_stage < growth_stages:
-			growth_stage += 1
-			$Sprite.frame += 1
-			if growth_stage == growth_stages:
-				print(self.name + " grew to max: " + str(growth_stage))
-				harvestable = true
-			else:
-				print(self.name + " grew to " + str(growth_stage))
-	#TODO elif is_growing: die
+		if current_lifetime < needed_growth_time:
+			if current_lifetime > (time_per_stage * (float(growth_stage)+1.0)) and growth_stage < growth_stages:
+				growth_stage += 1
+				$Sprite.frame = growth_stage
+				if growth_stage == growth_stages:
+					print(self.name + " grew to max: " + str(growth_stage))
+					harvestable = true
+				else:
+					print(self.name + " grew to " + str(growth_stage))
+			return
+		#TODO Make HP Based
+		if current_lifetime >= max_lifetime - time_per_stage:
+			modulate = Color(0.6, 0.4, 0.2)
+			if current_lifetime >= max_lifetime:
+				queue_free()
 	return

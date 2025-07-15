@@ -1,55 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dois6kkmre801"]
+[gd_scene load_steps=3 format=3 uid="uid://byctpfjpyrqux"]
 
 [ext_resource type="PackedScene" uid="uid://rsma5jmx6bgi" path="res://scenes/plant.tscn" id="1_hk67d"]
-[ext_resource type="Texture2D" uid="uid://ddogyc1ym6q04" path="res://sprites/plant_sheet.png" id="3_f1key"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57xk3"]
-atlas = ExtResource("3_f1key")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7125u"]
-atlas = ExtResource("3_f1key")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nyk1l"]
-atlas = ExtResource("3_f1key")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0ihw"]
-atlas = ExtResource("3_f1key")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pys7v"]
-atlas = ExtResource("3_f1key")
-region = Rect2(64, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lmx8i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_57xk3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7125u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nyk1l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q0ihw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pys7v")
-}],
-"loop": true,
-"name": &"default",
-"speed": 0.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://c8b7ckpddv8pc" path="res://scenes/plants/cucumber_plant.tres" id="2_1qnbk"]
 
 [node name="CucumberPlant" instance=ExtResource("1_hk67d")]
-crop_name = "Cucumber"
-max_lifetime = 30.0
-harvest_yield = 4
+is_growing = true
 
 [node name="Sprite" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_lmx8i")
+sprite_frames = ExtResource("2_1qnbk")

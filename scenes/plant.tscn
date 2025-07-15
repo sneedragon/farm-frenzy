@@ -6,9 +6,9 @@
 size = Vector2(13, 9)
 
 [node name="Plant" type="Area2D" groups=["Plant"]]
+z_index = 2
 y_sort_enabled = true
 script = ExtResource("1_fi0kw")
-harvest_yield = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1.5)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://cvp711unxmnjn"]
+[gd_scene load_steps=8 format=4 uid="uid://cvp711unxmnjn"]
 
 [ext_resource type="PackedScene" uid="uid://o83qnf75s2r" path="res://scenes/player.tscn" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bgsdxukltiq6q" path="res://sprites/tileset.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bijen1hethgjn" path="res://scenes/shovel.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://baa8sb6d7juvi" path="res://scenes/dropped_item.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dx764slkaucdc" path="res://scenes/seed_box.tscn" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
@@ -47,17 +48,36 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 tile_set = SubResource("TileSet_tbgi4")
 
 [node name="Walls" type="TileMapLayer" parent="."]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAEAAAAIAAMAAAACAAEAAAAHAAAAAAADAAEAAAAHAAAAAAAEAAEAAAAHAAAAAAAFAAEAAAAHAAAAAAAGAAEAAAAHAAAAAAAHAAEAAAAHAAAAAAAIAAEAAAAHAAAAAAAJAAEAAAAHAAAAAAAKAAEAAAAHAAAAAAALAAEAAAAHAAAAAAAMAAEAAAAHAAAAAAANAAEAAAAHAAAAAAAOAAEAAAAHAAAAAAAPAAEAAAAHAAAAAAAQAAEAAAAHAAAAAAAYAAwAAAAEAAAAAAAZAAwAAAAEAAAAAAAaAAwAAAAEAAAAAAAbAAwAAAAEAAAAAAAcAAwAAAAEAAAAAAAfAAwAAAAEAAAAAAAgAAwAAAAEAAAAAAAhAAwAAAAEAAAAAAAiAAwAAAAEAAAAAAAjAAwAAAAEAAAAAAAYAAAAAAAEAAAAAAAYAAEAAAAEAAAAAAAYAAIAAAAEAAAAAAAYAAMAAAAEAAAAAAAYAAQAAAAEAAAAAAAYAAUAAAAEAAAAAAAYAAgAAAAEAAAAAAAYAAkAAAAEAAAAAAAYAAoAAAAEAAAAAAAYAAsAAAAEAAAAAAAZAAAAAAAEAAAAAAAaAAAAAAAEAAAAAAAbAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAdAAAAAAAEAAAAAAAeAAAAAAAEAAAAAAAfAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAhAAAAAAAEAAAAAAAiAAAAAAAEAAAAAAAjAAAAAAAEAAAAAAAjAAEAAAAEAAAAAAAjAAIAAAAEAAAAAAAjAAMAAAAEAAAAAAAjAAQAAAAEAAAAAAAjAAUAAAAEAAAAAAAjAAYAAAAEAAAAAAAjAAcAAAAEAAAAAAAjAAgAAAAEAAAAAAAjAAkAAAAEAAAAAAAjAAoAAAAEAAAAAAAjAAsAAAAEAAAAAAAYAA0AAAAHAAEAAAAYAA4AAAAHAAEAAAAYAA8AAAAHAAEAAAAYABAAAAAHAAEAAAAYABEAAAAHAAEAAAAYABIAAAAHAAEAAAAYABMAAAAHAAEAAAAYABQAAAAJAAIAAAABAAIAAAAHAAEAAAABAAMAAAAHAAEAAAABAAQAAAAHAAEAAAABAAUAAAAHAAEAAAABAAYAAAAHAAEAAAABAAcAAAAHAAEAAAABAAgAAAAHAAEAAAABAAkAAAAHAAEAAAABAAoAAAAHAAEAAAABAAsAAAAHAAEAAAABAAwAAAAHAAEAAAABAA0AAAAHAAEAAAABAA4AAAAHAAEAAAABAA8AAAAHAAEAAAABABAAAAAHAAEAAAABABEAAAAHAAEAAAABABIAAAAHAAEAAAABABMAAAAHAAEAAAABABQAAAAIAAIAAAACABQAAAAHAAAAAAADABQAAAAHAAAAAAAEABQAAAAHAAAAAAAFABQAAAAHAAAAAAAGABQAAAAHAAAAAAAHABQAAAAHAAAAAAAIABQAAAAHAAAAAAAJABQAAAAHAAAAAAAKABQAAAAHAAAAAAALABQAAAAHAAAAAAAMABQAAAAHAAAAAAANABQAAAAHAAAAAAAOABQAAAAHAAAAAAAPABQAAAAHAAAAAAAQABQAAAAHAAAAAAARABQAAAAHAAAAAAASABQAAAAHAAAAAAATABQAAAAHAAAAAAAUABQAAAAHAAAAAAAVABQAAAAHAAAAAAAWABQAAAAHAAAAAAAXABQAAAAHAAAAAAARAAEAAAAHAAAAAAASAAEAAAAHAAAAAAATAAEAAAAHAAAAAAAUAAEAAAAHAAAAAAAVAAEAAAAHAAAAAAAWAAEAAAAHAAAAAAAXAAEAAAAHAAAAAAA=")
 tile_set = SubResource("TileSet_tbgi4")
 
 [node name="Player" parent="." instance=ExtResource("1_0wfyh")]
-z_index = 1
 position = Vector2(201, 222)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
+
+[node name="UI_Overlay" type="Control" parent="Player/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -192.0
+offset_top = -108.0
+offset_right = -152.0
+offset_bottom = -68.0
+
+[node name="List" type="VBoxContainer" parent="Player/Camera2D/UI_Overlay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/UI_Overlay/List"]
+layout_mode = 2
+
+[node name="CashLabel" type="Label" parent="Player/Camera2D/UI_Overlay/List/HBoxContainer"]
+layout_mode = 2
+text = "$500"
 
 [node name="Shovel" parent="." instance=ExtResource("3_sugp2")]
 z_index = 2
@@ -65,18 +85,9 @@ position = Vector2(384, 210)
 rotation = 0.958186
 
 [node name="SeedBox" parent="." instance=ExtResource("4_jyhfs")]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(376, 136)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
+[node name="DroppedItem" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(168, 245)

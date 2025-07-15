@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c8b7ckpddv8pc"]
+
+[ext_resource type="Texture2D" uid="uid://ddogyc1ym6q04" path="res://sprites/plant_sheet.png" id="1_fyk5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57xk3"]
+atlas = ExtResource("1_fyk5a")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7125u"]
+atlas = ExtResource("1_fyk5a")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyk1l"]
+atlas = ExtResource("1_fyk5a")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ihw"]
+atlas = ExtResource("1_fyk5a")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pys7v"]
+atlas = ExtResource("1_fyk5a")
+region = Rect2(64, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57xk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7125u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyk1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0ihw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pys7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
