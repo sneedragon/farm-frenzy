@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfivnpi3n28tf"
-path="res://.godot/imported/cucumber.png-2f9f27db3531ebe71988122c9870c53b.ctex"
+path="res://.godot/imported/cucumber.png-d2fc558dce04237277f0b7b90ab81956.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/icons/cucumber.png"
-dest_files=["res://.godot/imported/cucumber.png-2f9f27db3531ebe71988122c9870c53b.ctex"]
+source_file="res://sprites/icons/fruit/cucumber.png"
+dest_files=["res://.godot/imported/cucumber.png-d2fc558dce04237277f0b7b90ab81956.ctex"]
 
 [params]
 

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var planting: Node = $Interactions/Planting
 @onready var shoveling: Node = $Interactions/Shoveling
+@onready var harvesting: Node = $Interactions/Harvesting
 
 
 const SPEED = 150.0
@@ -39,16 +40,24 @@ func interact():
 			return
 		if target.is_in_group("Plot"):
 			planting.planting_checks(target)
+			if target.occupied == true:
+				harvesting.harvest_plot(target)
 			return
 			
 		#PLANTCARE & HARVESTING
 		if target.is_in_group("Plant"):
-			pass
+			if true == true: #TODO
+				harvesting.harvest(target)
 			return
 			
 		#BUY AND PLACE NEW GROWTH PLOTS
 		if target.name == "Shovel":
 			target.shovel_checks()
+			return
+		
+		if target.is_in_group("ShippingBox"):
+			target.sell_all_fruit()
+			print("selling fruit")
 			return
 			
 	if held_item:

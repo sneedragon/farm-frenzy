@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 global="*res://scripts/global.gd"
 seedlist="*res://scripts/seedlist.gd"
+inventory="*res://scripts/inventory.gd"
 
 [display]
 
@@ -30,6 +31,7 @@ window/stretch/mode="canvas_items"
 
 Plant=""
 Plot=""
+ShippingBox=""
 
 [input]
 

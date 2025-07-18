@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://byctpfjpyrqux"]
+[gd_scene load_steps=3 format=3 uid="uid://j37ry03s22nu"]
 
 [ext_resource type="PackedScene" uid="uid://rsma5jmx6bgi" path="res://scenes/plant.tscn" id="1_hk67d"]
 [ext_resource type="SpriteFrames" uid="uid://c8b7ckpddv8pc" path="res://scenes/plants/cucumber_plant.tres" id="2_1qnbk"]

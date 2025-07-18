@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkfxry6pwb37d"]
+
+[ext_resource type="Script" uid="uid://8ti7vqw1by7j" path="res://scripts/inv_slot.gd" id="1_oyh1m"]
+[ext_resource type="Texture2D" uid="uid://djf5yn4ugoiob" path="res://sprites/invslot.png" id="2_4qi3r"]
+[ext_resource type="Texture2D" uid="uid://t4vve2wgdkbr" path="res://sprites/icons/fruit/tomato.png" id="3_x2nmc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyh1m"]
+
+[node name="InvSlot" type="Panel"]
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oyh1m")
+script = ExtResource("1_oyh1m")
+
+[node name="PanelSprite" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_4qi3r")
+
+[node name="ItemDisplay" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("3_x2nmc")
+
+[node name="ItemAmountLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 31.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "999"
+horizontal_alignment = 2

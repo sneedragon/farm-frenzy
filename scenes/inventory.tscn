@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3tniwq6v8pw1"]
+
+[ext_resource type="Script" uid="uid://gmdyk7gnqxsc" path="res://scenes/inventory.gd" id="1_hj2ta"]
+[ext_resource type="Texture2D" uid="uid://djf5yn4ugoiob" path="res://sprites/invslot.png" id="2_53g1v"]
+[ext_resource type="PackedScene" uid="uid://bkfxry6pwb37d" path="res://scenes/inv_slot.tscn" id="2_ty45s"]
+
+[node name="PlayerInventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hj2ta")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 430.0
+offset_bottom = 28.0
+texture = ExtResource("2_53g1v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 269.0
+offset_bottom = 40.0
+
+[node name="InvSlot1" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot2" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot3" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot4" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot5" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot6" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot7" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot8" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot9" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot10" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot11" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot12" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot13" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot14" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot15" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+
+[node name="InvSlot16" parent="HBoxContainer" instance=ExtResource("2_ty45s")]
+layout_mode = 2

@@ -24,23 +24,29 @@ enum seeds {
 const SEED_DATA = {
 	seeds.TOMATO: {
 		"display_name": "Tomato",
-		"icon": 'TODO',
+		"icon": preload("res://sprites/icons/fruit/tomato.png"),
 		"seed_icon": 'TODO',
 		"sprites" : preload("res://scenes/plants/tomato_plant.tres"),
 		"max": DEFAULT_MAX,
 		"grow_time": 45.0,
 		"harvest_yield": 2,
 		"health": 100.0,
+		"amount" : 1,
+		"sell_value": 5,
+		"item_type": null,
 	},
 	seeds.CUCUMBER: {
 		"display_name": "Cucumber",
-		"icon": 'TODO',
+		"icon": preload("res://sprites/icons/fruit/cucumber.png"),
 		"seed_icon": 'TODO',
 		"sprites": preload("res://scenes/plants/cucumber_plant.tres"),
 		"max": DEFAULT_MAX,
 		"grow_time": 30.0,
 		"harvest_yield": 4,
 		"health": 200,
+		"amount": 1,
+		"sell_value": 1,
+		"item_type": null,
 	}
 }
 

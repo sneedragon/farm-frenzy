@@ -15,4 +15,5 @@ position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_fi0kw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 2
 y_sort_enabled = true

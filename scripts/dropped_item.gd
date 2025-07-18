@@ -1,15 +1,21 @@
 extends Area2D
 class_name DroppedItem
 
-var sprite
+var item_type
+var item_data
 
+var display_name : String
 var drop_radius : float = 24.0
 var drop_duration: float = 0.5
 @export var jump_height: float = 20.0
 @export var jump_duration: float = 0.2
 
 func _ready() -> void:
-	#$Sprite2D.frame = sprite
+	if !item_data: #DEBUG
+		item_data = seedlist.get_seed_data(seedlist.seeds.TOMATO).duplicate(true)
+		item_data["item_type"] = "Fruit"
+	$Sprite2D.texture = item_data["icon"]
+	display_name = item_data["display_name"]
 	drop()
 
 func drop():
@@ -28,3 +34,13 @@ func drop():
 
 	# Then drop to the final target position
 	tween.tween_property(self, "global_position", target_position, drop_duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if inventory.inv_check(item_data):
+		print("Picked up " + display_name)
+		queue_free()
+		return
+	print("Inventory full. Could not pick up " + display_name)
+	#TODO INVENTORY???
+	

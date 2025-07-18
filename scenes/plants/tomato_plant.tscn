@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgdg3o8hwf38x"]
+[gd_scene load_steps=4 format=3 uid="uid://b4eei4tvwpcd3"]
 
 [ext_resource type="PackedScene" uid="uid://rsma5jmx6bgi" path="res://scenes/plant.tscn" id="1_q5yqy"]
 [ext_resource type="SpriteFrames" uid="uid://01uylst3fnry" path="res://scenes/plants/tomato_plant.tres" id="2_vufmc"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm3b38n0fsgs3"]
+
+[ext_resource type="Texture2D" uid="uid://d1wryht6q8pav" path="res://sprites/shipping_box.png" id="1_7bxiu"]
+[ext_resource type="Script" uid="uid://b0evsfyygn6vj" path="res://scripts/shipping_box.gd" id="1_l7705"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7705"]
+atlas = ExtResource("1_7bxiu")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r40ap"]
+atlas = ExtResource("1_7bxiu")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0or7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7705")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r40ap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r40ap"]
+size = Vector2(30, 10)
+
+[node name="ShippingBox" type="StaticBody2D" groups=["ShippingBox"]]
+z_index = 2
+script = ExtResource("1_l7705")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_v0or7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_r40ap")
